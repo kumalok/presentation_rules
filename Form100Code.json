@@ -1,0 +1,89 @@
+{
+  "config": {
+    "page": [
+      {
+        "question": [
+          {
+            "dataBinding": "formCode",
+            "label": "Form Code",
+            "rateBearing": false,
+            "tooltip": "Form Code",
+            "answerTextBox": {
+              "dataType": "integer"
+            },
+            "required": {
+              "dependencyKey": {
+                "ref": "isForm100AndAV"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "dependencyInfo": {
+      "condition": [
+        {
+          "ref": "isForm100AndAV",
+          "expression": [
+            {
+              "method": "or",
+              "arguments": {
+                "expression": [
+                  {
+                    "condRef": "isForm100"
+                  },
+                  {
+                    "condRef": "isHullAV"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "ref": "isForm100",
+          "expression": [
+            {
+              "method": "is",
+              "arguments": {
+                "var": [
+                  {
+                    "type": "xpath",
+                    "value": "formTypeCD"
+                  },
+                  {
+                    "type": "string",
+                    "value": "100"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "ref": "isHullAV",
+          "expression": [
+            {
+              "method": "is",
+              "arguments": {
+                "var": [
+                  {
+                    "type": "xpath",
+                    "value": "hullTypeCd"
+                  },
+                  {
+                    "type": "string",
+                    "value": "AV"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "filterInfo": {
+      "filter": []
+    }
+  }
+}
