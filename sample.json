@@ -1,1 +1,101 @@
-"{\n  \"config\": {\n    \"page\": [\n      {\n        \"question\": [\n          {\n            \"dataBinding\": \"\",\n            \"label\": \"\",\n            \"rateBearing\": false,\n            \"answerRadio\": {\n              \"option\": [\n                {\n                  \"value\": {\n                    \"code\": \"1\",\n                    \"decode\": \"Yes\"\n                  }\n                },\n                {\n                  \"value\": {\n                    \"code\": \"0\",\n                    \"decode\": \"No\"\n                  }\n                }\n              ]\n            },\n            \"required\": {\n              \"dependencyKey\": {\n                \"ref\": \"isHullAVAndACV\"\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"dependencyInfo\": {\n      \"condition\": [\n        {\n          \"ref\": \"isHullAVAndACV\",\n          \"expression\": [\n            {\n              \"method\": \"or\",\n              \"arguments\": {\n                \"expression\": [\n                  {\n                    \"condRef\": \"isHullTypeAV\"\n                  },\n                  {\n                    \"condRef\": \"isHullTypeACV\"\n                  }\n                ]\n              }\n            }\n          ]\n        },\n        {\n          \"ref\": \"isHullTypeAV\",\n          \"expression\": [\n            {\n              \"method\": \"is\",\n              \"arguments\": {\n                \"var\": [\n                  {\n                    \"type\": \"xpath\",\n                    \"value\": \"hullTypeCd\"\n                  },\n                  {\n                    \"type\": \"string\",\n                    \"value\": \"AV\"\n                  }\n                ]\n              }\n            }\n          ]\n        },\n        {\n          \"ref\": \"isHullTypeACV\",\n          \"expression\": [\n            {\n              \"method\": \"is\",\n              \"arguments\": {\n                \"var\": [\n                  {\n                    \"type\": \"xpath\",\n                    \"value\": \"hullTypeCd\"\n                  },\n                  {\n                    \"type\": \"string\",\n                    \"value\": \"ACV\"\n                  }\n                ]\n              }\n            }\n          ]\n        }\n      ]\n    },\n    \"filterInfo\": {\n      \"filter\": []\n    }\n  }\n}"
+{
+  "config": {
+    "page": [
+      {
+        "question": [
+          {
+            "dataBinding": "",
+            "label": "",
+            "rateBearing": false,
+            "answerRadio": {
+              "option": [
+                {
+                  "value": {
+                    "code": "1",
+                    "decode": "Yes"
+                  }
+                },
+                {
+                  "value": {
+                    "code": "0",
+                    "decode": "No"
+                  }
+                }
+              ]
+            },
+            "required": {
+              "dependencyKey": {
+                "ref": "isHullAVAndACV"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "dependencyInfo": {
+      "condition": [
+        {
+          "ref": "isHullAVAndACV",
+          "expression": [
+            {
+              "method": "or",
+              "arguments": {
+                "expression": [
+                  {
+                    "condRef": "isHullTypeAV"
+                  },
+                  {
+                    "condRef": "isHullTypeACV"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "ref": "isHullTypeAV",
+          "expression": [
+            {
+              "method": "is",
+              "arguments": {
+                "var": [
+                  {
+                    "type": "xpath",
+                    "value": "hullTypeCd"
+                  },
+                  {
+                    "type": "string",
+                    "value": "AV"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "ref": "isHullTypeACV",
+          "expression": [
+            {
+              "method": "is",
+              "arguments": {
+                "var": [
+                  {
+                    "type": "xpath",
+                    "value": "hullTypeCd"
+                  },
+                  {
+                    "type": "string",
+                    "value": "ACV"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "filterInfo": {
+      "filter": []
+    }
+  }
+}
